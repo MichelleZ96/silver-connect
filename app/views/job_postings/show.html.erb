@@ -61,12 +61,12 @@
         <%= @the_job_posting.employer_id %>
       </dd>
 
-      <dt>
-        Bookmarked jobs count
+<!--      <dt>
+        Bookmarked count
       </dt>
       <dd>
-        <%= @the_job_posting.bookmarked_jobs_count %>
-      </dd>
+        <%#= @the_job_posting.bookmarked_jobs_count %>-->
+<!--      </dd>-->
 
       <dt>
         Created at
@@ -143,13 +143,13 @@
         <input type="text" id="employer_id_box" name="query_employer_id" value="<%= @the_job_posting.employer_id %>">
       </div>
 
-      <div>
+<!--      <div>
         <label for="bookmarked_jobs_count_box">
           Bookmarked jobs count
         </label>
 
-        <input type="text" id="bookmarked_jobs_count_box" name="query_bookmarked_jobs_count" value="<%= @the_job_posting.bookmarked_jobs_count %>">
-      </div>
+        <input type="text" id="bookmarked_jobs_count_box" name="query_bookmarked_jobs_count" value="<%#= @the_job_posting.bookmarked_jobs_count %>">
+      </div>-->
 
       <button>
         Update job posting

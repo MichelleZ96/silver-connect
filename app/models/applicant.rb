@@ -43,41 +43,41 @@ class Applicant < ApplicationRecord
 
   has_many :interested_job_postings, through: :bookmarked_jobs, source: :job_posting
 
-  validates :name, presence: true
+  # validates :name, presence: true
 
-  validates :age, presence: true
+  # validates :age, presence: true
 
-  validates :experience_1_last_role, presence: true
+  # validates :experience_1_last_role, presence: true
 
-  validates :experience_1_industry, presence: true
+  # validates :experience_1_industry, presence: true
 
-  validates :experience_1_duration_years, presence: true
+  # validates :experience_1_duration_years, presence: true
 
-  validates :experience_1_company, presence: true
+  # validates :experience_1_company, presence: true
 
-  validates :experience_2_last_role, presence: true
+  # validates :experience_2_last_role, presence: true
 
-  validates :experience_2_industry, presence: true
+  # validates :experience_2_industry, presence: true
 
-  validates :experience_2_duration_years, presence: true
+  # validates :experience_2_duration_years, presence: true
 
-  validates :experience_2_company, presence: true
+  # validates :experience_2_company, presence: true
   
-  validates :interested_role_1, presence: true
+  # validates :interested_role_1, presence: true
 
-  validates :interested_role_1, uniqueness: { scope: ["interested_role_3", "interested_role_2"] }
+  # validates :interested_role_1, uniqueness: { scope: ["interested_role_3", "interested_role_2"] }
 
-  validates :interested_role_2, uniqueness: { scope: ["interested_role_1", "interested_role_3"] }
+  # validates :interested_role_2, uniqueness: { scope: ["interested_role_1", "interested_role_3"] }
 
-  validates :interested_role_3, uniqueness: { scope: ["interested_role_1", "interested_role_2"] }
+  # validates :interested_role_3, uniqueness: { scope: ["interested_role_1", "interested_role_2"] }
 
-  validates :interested_industry_1, presence: true
+  # validates :interested_industry_1, presence: true
 
-  validates :interested_industry_1, uniqueness: { scope: ["interested_industry_2", "interested_industry_3"] }
+  # validates :interested_industry_1, uniqueness: { scope: ["interested_industry_2", "interested_industry_3"] }
 
-  validates :interested_industry_2, uniqueness: { scope: ["interested_industry_3", "interested_industry_1"] }
+  # validates :interested_industry_2, uniqueness: { scope: ["interested_industry_3", "interested_industry_1"] }
 
-  validates :interested_industry_3, uniqueness: { scope: ["interested_industry_2", "interested_industry_1"] }
+  # validates :interested_industry_3, uniqueness: { scope: ["interested_industry_2", "interested_industry_1"] }
 
 
 end

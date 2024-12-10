@@ -24,8 +24,8 @@ class JobPostingsController < ApplicationController
     the_job_posting.desired_qualifications = params.fetch("query_desired_qualifications")
     the_job_posting.logistics = params.fetch("query_logistics")
     the_job_posting.pay_range = params.fetch("query_pay_range")
-    the_job_posting.employer_id = params.fetch("query_employer_id")
-    the_job_posting.bookmarked_jobs_count = params.fetch("query_bookmarked_jobs_count")
+    the_job_posting.employer_id = current_employer.id
+    # the_job_posting.bookmarked_jobs_count = params.fetch("query_bookmarked_jobs_count")
 
     if the_job_posting.valid?
       the_job_posting.save
@@ -44,8 +44,8 @@ class JobPostingsController < ApplicationController
     the_job_posting.desired_qualifications = params.fetch("query_desired_qualifications")
     the_job_posting.logistics = params.fetch("query_logistics")
     the_job_posting.pay_range = params.fetch("query_pay_range")
-    the_job_posting.employer_id = params.fetch("query_employer_id")
-    the_job_posting.bookmarked_jobs_count = params.fetch("query_bookmarked_jobs_count")
+    the_job_posting.employer_id = current_employer.id
+    # the_job_posting.bookmarked_jobs_count = params.fetch("query_bookmarked_jobs_count")
 
     if the_job_posting.valid?
       the_job_posting.save

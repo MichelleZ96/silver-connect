@@ -29,11 +29,11 @@ class Employer < ApplicationRecord
   
   has_many  :job_postings, class_name: "JobPosting", foreign_key: "employer_id", dependent: :destroy
 
-  validates :name, presence: true
+  # validates :name, presence: true
 
-  validates :industry, presence: true
+  # validates :industry, presence: true
 
-  validates :for_profit_or_non_profit, presence: true
+  # validates :for_profit_or_non_profit, presence: true
 
-  validates :company_description, presence: true
+  # validates :company_description, presence: true
 end

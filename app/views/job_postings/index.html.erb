@@ -63,13 +63,13 @@
         <input type="text" id="employer_id_box" name="query_employer_id">
       </div>
 
-      <div>
+<!--      <div>
         <label for="bookmarked_jobs_count_box">
           Bookmarked count
         </label>
 
         <input type="text" id="bookmarked_jobs_count_box" name="query_bookmarked_jobs_count">
-      </div>
+      </div>-->
 
       <button>
         Create job posting
@@ -110,10 +110,10 @@
         <th>
           Employer
         </th>
-
+<!--
         <th>
           Bookmarked count
-        </th>
+        </th>-->
 
         <th>
           Created at
@@ -157,10 +157,10 @@
           <%= a_job_posting.employer_id %>
         </td>
 
-        <td>
-          <%= a_job_posting.bookmarked_jobs_count %>
-        </td>
-
+<!--        <td>-->
+          <%#= a_job_posting.bookmarked_jobs_count %>
+<!--        </td>
+-->
         <td>
           <%= time_ago_in_words(a_job_posting.created_at) %> ago
         </td>
