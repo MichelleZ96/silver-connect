@@ -1,4 +1,23 @@
 Rails.application.routes.draw do
+  # Routes for the Job posting resource:
+
+  # CREATE
+  post("/insert_job_posting", { :controller => "job_postings", :action => "create" })
+          
+  # READ
+  get("/job_postings", { :controller => "job_postings", :action => "index" })
+  
+  get("/job_postings/:path_id", { :controller => "job_postings", :action => "show" })
+  
+  # UPDATE
+  
+  post("/modify_job_posting/:path_id", { :controller => "job_postings", :action => "update" })
+  
+  # DELETE
+  get("/delete_job_posting/:path_id", { :controller => "job_postings", :action => "destroy" })
+
+  #------------------------------
+
   devise_for :employers
   devise_for :applicants
 

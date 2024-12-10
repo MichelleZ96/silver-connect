@@ -1,0 +1,161 @@
+<div>
+  <div>
+    <h1>
+      Job posting #<%= @the_job_posting.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/job_postings">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_job_posting/<%= @the_job_posting.id %>">
+          Delete job posting
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Title
+      </dt>
+      <dd>
+        <%= @the_job_posting.title %>
+      </dd>
+
+      <dt>
+        Responsibilities
+      </dt>
+      <dd>
+        <%= @the_job_posting.responsibilities %>
+      </dd>
+
+      <dt>
+        Desired qualifications
+      </dt>
+      <dd>
+        <%= @the_job_posting.desired_qualifications %>
+      </dd>
+
+      <dt>
+        Logistics
+      </dt>
+      <dd>
+        <%= @the_job_posting.logistics %>
+      </dd>
+
+      <dt>
+        Pay range
+      </dt>
+      <dd>
+        <%= @the_job_posting.pay_range %>
+      </dd>
+
+      <dt>
+        Employer
+      </dt>
+      <dd>
+        <%= @the_job_posting.employer_id %>
+      </dd>
+
+      <dt>
+        Bookmarked jobs count
+      </dt>
+      <dd>
+        <%= @the_job_posting.bookmarked_jobs_count %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_job_posting.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_job_posting.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit job posting
+    </h2>
+
+    <form action="/modify_job_posting/<%= @the_job_posting.id %>"  method="post" >
+      <div>
+        <label for="title_box">
+          Title
+        </label>
+
+        <input type="text" id="title_box" name="query_title" value="<%= @the_job_posting.title %>">
+      </div>
+
+      <div>
+        <label for="responsibilities_box">
+          Responsibilities
+        </label>
+
+        <textarea id="responsibilities_box" name="query_responsibilities"><%= @the_job_posting.responsibilities %></textarea>
+      </div>
+
+      <div>
+        <label for="desired_qualifications_box">
+          Desired qualifications
+        </label>
+
+        <textarea id="desired_qualifications_box" name="query_desired_qualifications"><%= @the_job_posting.desired_qualifications %></textarea>
+      </div>
+
+      <div>
+        <label for="logistics_box">
+          Logistics
+        </label>
+
+        <textarea id="logistics_box" name="query_logistics"><%= @the_job_posting.logistics %></textarea>
+      </div>
+
+      <div>
+        <label for="pay_range_box">
+          Pay range
+        </label>
+
+        <input type="text" id="pay_range_box" name="query_pay_range" value="<%= @the_job_posting.pay_range %>">
+      </div>
+
+      <div>
+        <label for="employer_id_box">
+          Employer
+        </label>
+
+        <input type="text" id="employer_id_box" name="query_employer_id" value="<%= @the_job_posting.employer_id %>">
+      </div>
+
+      <div>
+        <label for="bookmarked_jobs_count_box">
+          Bookmarked jobs count
+        </label>
+
+        <input type="text" id="bookmarked_jobs_count_box" name="query_bookmarked_jobs_count" value="<%= @the_job_posting.bookmarked_jobs_count %>">
+      </div>
+
+      <button>
+        Update job posting
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

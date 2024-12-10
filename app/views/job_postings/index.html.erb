@@ -1,0 +1,182 @@
+<div>
+  <div>
+    <h1>
+      List of all job postings
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new job posting
+    </h2>
+
+    <form action="/insert_job_posting" method="post">
+      <div>
+        <label for="title_box">
+          Title
+        </label>
+
+        <input type="text" id="title_box" name="query_title">
+      </div>
+
+      <div>
+        <label for="responsibilities_box">
+          Responsibilities
+        </label>
+
+        <textarea id="responsibilities_box" name="query_responsibilities" rows="3"></textarea>
+      </div>
+
+      <div>
+        <label for="desired_qualifications_box">
+          Desired qualifications
+        </label>
+
+        <textarea id="desired_qualifications_box" name="query_desired_qualifications" rows="3"></textarea>
+      </div>
+
+      <div>
+        <label for="logistics_box">
+          Logistics
+        </label>
+
+        <textarea id="logistics_box" name="query_logistics" rows="3"></textarea>
+      </div>
+
+      <div>
+        <label for="pay_range_box">
+          Pay range
+        </label>
+
+        <input type="text" id="pay_range_box" name="query_pay_range">
+      </div>
+
+      <div>
+        <label for="employer_id_box">
+          Employer
+        </label>
+
+        <input type="text" id="employer_id_box" name="query_employer_id">
+      </div>
+
+      <div>
+        <label for="bookmarked_jobs_count_box">
+          Bookmarked jobs count
+        </label>
+
+        <input type="text" id="bookmarked_jobs_count_box" name="query_bookmarked_jobs_count">
+      </div>
+
+      <button>
+        Create job posting
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Title
+        </th>
+
+        <th>
+          Responsibilities
+        </th>
+
+        <th>
+          Desired qualifications
+        </th>
+
+        <th>
+          Logistics
+        </th>
+
+        <th>
+          Pay range
+        </th>
+
+        <th>
+          Employer
+        </th>
+
+        <th>
+          Bookmarked jobs count
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_job_postings.each do |a_job_posting| %>
+      <tr>
+        <td>
+          <%= a_job_posting.id %>
+        </td>
+
+        <td>
+          <%= a_job_posting.title %>
+        </td>
+
+        <td>
+          <%= a_job_posting.responsibilities %>
+        </td>
+
+        <td>
+          <%= a_job_posting.desired_qualifications %>
+        </td>
+
+        <td>
+          <%= a_job_posting.logistics %>
+        </td>
+
+        <td>
+          <%= a_job_posting.pay_range %>
+        </td>
+
+        <td>
+          <%= a_job_posting.employer_id %>
+        </td>
+
+        <td>
+          <%= a_job_posting.bookmarked_jobs_count %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_job_posting.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_job_posting.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/job_postings/<%= a_job_posting.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>
