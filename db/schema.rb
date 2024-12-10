@@ -10,8 +10,37 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 0) do
+ActiveRecord::Schema[7.1].define(version: 2024_12_10_204233) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "applicants", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.string "name"
+    t.string "experience_1_company"
+    t.integer "experience_1_duration_years"
+    t.string "experience_1_last_role"
+    t.integer "experience_1_industry"
+    t.integer "age"
+    t.string "experience_2_company"
+    t.integer "experience_2_duration_years"
+    t.string "experience_2_last_role"
+    t.string "experience_2_industry"
+    t.string "interested_industry_1"
+    t.string "interested_industry_2"
+    t.string "interested_industry_3"
+    t.string "interested_role_1"
+    t.string "interested_role_2"
+    t.string "interested_role_3"
+    t.integer "bookmarked_jobs_count"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_applicants_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_applicants_on_reset_password_token", unique: true
+  end
 
 end
