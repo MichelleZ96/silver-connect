@@ -1,0 +1,86 @@
+<div>
+  <div>
+    <h1>
+      Bookmarked job #<%= @the_bookmarked_job.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/bookmarked_jobs">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_bookmarked_job/<%= @the_bookmarked_job.id %>">
+          Delete bookmarked job
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Applicant
+      </dt>
+      <dd>
+        <%= @the_bookmarked_job.applicant_id %>
+      </dd>
+
+      <dt>
+        Job posting
+      </dt>
+      <dd>
+        <%= @the_bookmarked_job.job_posting_id %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_bookmarked_job.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_bookmarked_job.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit bookmarked job
+    </h2>
+
+    <form action="/modify_bookmarked_job/<%= @the_bookmarked_job.id %>"  method="post" >
+      <div>
+        <label for="applicant_id_box">
+          Applicant
+        </label>
+
+        <input type="text" id="applicant_id_box" name="query_applicant_id" value="<%= @the_bookmarked_job.applicant_id %>">
+      </div>
+
+      <div>
+        <label for="job_posting_id_box">
+          Job posting
+        </label>
+
+        <input type="text" id="job_posting_id_box" name="query_job_posting_id" value="<%= @the_bookmarked_job.job_posting_id %>">
+      </div>
+
+      <button>
+        Update bookmarked job
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
