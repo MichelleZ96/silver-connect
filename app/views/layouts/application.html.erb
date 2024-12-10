@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Rails Template</title>
+    <title>Silver Connect</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -11,6 +11,16 @@
   </head>
 
   <body>
+    <nav>
+      <a href="/">Silver Connect</a>
+      <% if current_applicant != nil %>
+        <a href="/applicants/sign_out">Sign out</a>
+        <a href="/applicants/edit">Edit profile</a>
+      <% else %>
+        <a href="/applicants/sign_up">Sign up</a>
+        <a href="/applicants/sign_in">Sign in</a>
+      <% end %>
+    </nav>
 
   
     <% if notice.present? %>
@@ -24,7 +34,7 @@
         <%= alert %>
       </div>
     <% end %>
-    
+
     <%= yield %>
   </body>
 </html>
