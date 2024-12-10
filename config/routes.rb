@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get("/", { :controller => "misc", :action => "homepage" })
+  
   # Routes for the Bookmarked job resource:
 
   # CREATE

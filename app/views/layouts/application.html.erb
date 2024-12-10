@@ -14,15 +14,22 @@
     <nav>
       <a href="/">Silver Connect</a>
       <% if current_applicant != nil %>
-        <a href="/applicants/sign_out">Sign out</a>
-        <a href="/applicants/edit">Edit profile</a>
+        <a href="/applicants/sign_out">Applicant sign out</a>
+        <a href="/applicants/edit">Applicant edit profile</a>
       <% else %>
-        <a href="/applicants/sign_up">Sign up</a>
-        <a href="/applicants/sign_in">Sign in</a>
+        <a href="/applicants/sign_up">Applicant sign up</a>
+        <a href="/applicants/sign_in">Applicant sign in</a>
+      <% end %>
+
+      <% if current_employer != nil %>
+        <a href="/employers/sign_out">Employer sign out</a>
+        <a href="/employers/edit">Employer edit profile</a>
+      <% else %>
+        <a href="/employers/sign_up">Employer sign up</a>
+        <a href="/employers/sign_in">Employer sign in</a>
       <% end %>
     </nav>
 
-  
     <% if notice.present? %>
       <div style="color: green">
         <%= notice %>
