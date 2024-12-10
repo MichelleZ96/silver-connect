@@ -9,4 +9,7 @@
 #  job_posting_id :integer
 #
 class BookmarkedJob < ApplicationRecord
+  belongs_to :user, required: true, class_name: "Applicant", foreign_key: "applicant_id", counter_cache: true
+
+  belongs_to :job_posting, required: true, class_name: "JobPosting", foreign_key: "job_posting_id", counter_cache: true
 end

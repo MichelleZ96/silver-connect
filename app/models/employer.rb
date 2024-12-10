@@ -26,4 +26,14 @@ class Employer < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+  
+  has_many  :job_postings, class_name: "JobPosting", foreign_key: "employer_id", dependent: :destroy
+
+  validates :name, presence: true
+
+  validates :industry, presence: true
+
+  validates :for_profit_or_non_profit, presence: true
+
+  validates :company_description, presence: true
 end
