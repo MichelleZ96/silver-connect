@@ -55,13 +55,13 @@
         <input type="text" id="pay_range_box" name="query_pay_range">
       </div>
 
-      <div>
+<!--      <div>
         <label for="employer_id_box">
           Employer
         </label>
 
         <input type="text" id="employer_id_box" name="query_employer_id">
-      </div>
+      </div>-->
 
 <!--      <div>
         <label for="bookmarked_jobs_count_box">
@@ -106,10 +106,10 @@
         <th>
           Pay range
         </th>
-
+<!--
         <th>
           Employer
-        </th>
+        </th>-->
 <!--
         <th>
           Bookmarked count
@@ -154,7 +154,11 @@
         </td>
 
         <td>
-          <%= a_job_posting.employer_id %>
+          <% matching_employers = Employer.where({ :id => a_job_posting.employer_id }) %>
+          
+          <% the_employer = matching_employers.at(0) %>
+
+          <%= the_employer.name %>
         </td>
 
 <!--        <td>-->
