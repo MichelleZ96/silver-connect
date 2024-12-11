@@ -1,7 +1,24 @@
 <h1>Welcome, <%= @applicant.name %>!</h1>
 
-<p>Email: <%= @applicant.email %></p>
-<p>Age: <%= @applicant.age %></p>
+<body>
+    
+    <p>Here is your profile information</p>
+    <p>Email: <%= @applicant.email %></p>
+    <p>Age: <%= @applicant.age %></p>
+    <p>Last Experience: <%= @applicant.last_experience_company %></p>
+    <p>Interested Industry: <%= @applicant.interested_industry_1 %>, <%= @applicant.interested_industry_2 %>, <%= @applicant.interested_industry_3 %></p>
+    <p>Interested Role: <%= @applicant.interested_role_1 %>, <%= @applicant.interested_role_2 %>, <%= @applicant.interested_role_3 %></p>
 
+    <div>
+      <a href="/job_postings">
+          All Job Postings
+      </a>
+    </div>
 
-# make this profile update too 
+<!--    <div>
+      <a href="/bookmarked_jobs">
+          Your Bookmarked Jobs
+      </a>
+    </div>-->
+
+</body>

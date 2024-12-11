@@ -1,2 +1,17 @@
 <h1>Welcome, <%= @employer.name %>!</h1>
-<p>Email: <%= @employer.email %></p>
+
+<body>
+    
+    <p>Here is your profile information</p>
+    <p>Email: <%= @employer.email %></p>
+    <p>Industry: <%= @employer.industry %></p>
+    <p>For-Profit/Non-Profit: <%= @employer.for_profit_or_non_profit %></p>
+    <p>Company Description: <%= @employer.company_description %></p>
+
+  <div>
+    <a href="/job_postings/new">Add job postings</a>
+  </div>
+  <div>
+    <a href="/job_postings/employers/:id">View existing job postings</a>
+  </div>
+</body>
