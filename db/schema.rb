@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_12_11_042323) do
+ActiveRecord::Schema[7.1].define(version: 2024_12_11_191858) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -22,9 +22,9 @@ ActiveRecord::Schema[7.1].define(version: 2024_12_11_042323) do
     t.datetime "remember_created_at"
     t.string "name"
     t.string "last_experience_company"
-    t.integer "last_experience_duration_years"
+    t.string "last_experience_duration_years"
     t.string "last_experience_last_role"
-    t.integer "last_experience_industry"
+    t.string "last_experience_industry"
     t.integer "age"
     t.string "interested_industry_1"
     t.string "interested_industry_2"

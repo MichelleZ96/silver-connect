@@ -14,8 +14,8 @@
 #  interested_role_2              :string
 #  interested_role_3              :string
 #  last_experience_company        :string
-#  last_experience_duration_years :integer
-#  last_experience_industry       :integer
+#  last_experience_duration_years :string
+#  last_experience_industry       :string
 #  last_experience_last_role      :string
 #  name                           :string
 #  remember_created_at            :datetime
