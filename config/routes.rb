@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   get("/", { :controller => "misc", :action => "homepage" })
   
-  get("/applicants/:id/profile", { :controller => "applicant", :action => "profile", :as => "applicant_profile" })
-  get("/employers/:id/profile", { :controller => "employer", :action => "profile", :as => "employer_profile" })
+  get("/applicants/:id/profile", { :controller => "applicants", :action => "profile", :as => "applicant_profile" })
+  get("/employers/:id/profile", { :controller => "employers", :action => "profile", :as => "employer_profile" })
 
   # Routes for the Bookmarked job resource:
 
@@ -42,9 +42,9 @@ Rails.application.routes.draw do
 
   #------------------------------
 
-  devise_for :employers
-  devise_for :applicants
-  devise_for :applicants, controllers: { registrations: 'applicants/registrations' }
+  devise_for :employers, path: 'employers'
+  devise_for :applicants, path: 'applicants'
+  # devise_for :applicants, controllers: { registrations: 'applicants/registrations' }
 
   # This is a blank app! Pick your first screen, build out the RCAV, and go from there. E.g.:
 

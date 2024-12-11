@@ -15,6 +15,18 @@
     <%= f.input :password_confirmation,
                 required: true,
                 input_html: { autocomplete: "new-password" } %>
+    <%= f.input :name,
+                required: true,
+                input_html: { autocomplete: "name" } %>              
+    <%= f.input :industry,
+                required: true,
+                input_html: { autocomplete: "industry" } %>  
+    <%= f.input :for_profit_or_non_profit,
+                required: true,
+                input_html: { autocomplete: "for_profit_or_non_profit" } %>  
+    <%= f.input :company_description,
+                required: true,
+                input_html: { autocomplete: "company_description" } %>  
   </div>
 
   <div class="form-actions">

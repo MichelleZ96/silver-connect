@@ -19,7 +19,7 @@ class BookmarkedJobsController < ApplicationController
 
   def create
     the_bookmarked_job = BookmarkedJob.new
-    the_bookmarked_job.applicant_id = params.fetch("query_applicant_id")
+    the_bookmarked_job.applicant_id = current_applicant.id
     the_bookmarked_job.job_posting_id = params.fetch("query_job_posting_id")
 
     if the_bookmarked_job.valid?
