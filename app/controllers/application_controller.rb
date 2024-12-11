@@ -1,6 +1,26 @@
 class ApplicationController < ActionController::Base
   skip_forgery_protection
 
+  def after_sign_up_path_for(resource)
+    if resource.is_a?(Applicant)
+      applicant_profile_path(resource) # Redirect to the applicant's specific profile page
+    elsif resource.is_a?(Employer)
+      employer_profile_path(resource)  # Redirect to the employer's specific profile page
+    else
+      super # Default Devise behavior
+    end
+  end
+
+  def after_sign_in_path_for(resource)
+    if resource.is_a?(Applicant)
+      applicant_profile_path(resource) # Redirect to the applicant's specific profile page
+    elsif resource.is_a?(Employer)
+      employer_profile_path(resource)  # Redirect to the employer's specific profile page
+    else
+      super # Default Devise behavior
+    end
+  end
+
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   protected
