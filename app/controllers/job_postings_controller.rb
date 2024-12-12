@@ -1,6 +1,6 @@
 class JobPostingsController < ApplicationController
   def new
-    @job_posting = JobPosting.new
+    # @job_posting = JobPosting.new
     render({ :template => "job_postings/new"})
   end
 
@@ -36,14 +36,14 @@ class JobPostingsController < ApplicationController
     the_job_posting.desired_qualifications = params.fetch("query_desired_qualifications")
     the_job_posting.logistics = params.fetch("query_logistics")
     the_job_posting.pay_range = params.fetch("query_pay_range")
-    # the_job_posting.employer_id = current_employer.id
-    # the_job_posting.bookmarked_jobs_count = params.fetch("query_bookmarked_jobs_count")
+    the_job_posting.employer_id = current_employer.id
+    the_job_posting.industry = current_employer.industry
 
     if the_job_posting.valid?
       the_job_posting.save
-      redirect_to("job_postings", { :notice => "Job posting created successfully." })
+      redirect_to("/job_postings/employers/#{current_employer.id}", { :notice => "Job posting created successfully." })
     else
-      redirect_to("job_postings", { :alert => the_job_posting.errors.full_messages.to_sentence })
+      redirect_to("/job_postings/employers/#{current_employer.id}", { :alert => the_job_posting.errors.full_messages.to_sentence })
     end
   end
 

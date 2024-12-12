@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_12_11_191858) do
+ActiveRecord::Schema[7.1].define(version: 2024_12_12_191040) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -73,6 +73,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_12_11_191858) do
     t.integer "bookmarked_jobs_count"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "industry"
   end
 
 end
