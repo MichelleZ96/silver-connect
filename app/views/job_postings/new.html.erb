@@ -9,41 +9,54 @@
 <hr>
 
 <div>
-  <div>
+  <form action="/insert_job_posting" method="post">
+      <div>
+        <label for="title_box">
+          Title
+        </label>
 
-    <%= form_with(url: "/insert_job_posting", method: :post, local: true) do |form| %>
-  <div>
-    <%= form.label :title, "Job Title" %>
-    <%= form.text_field :title %>
-  </div>
+        <input type="text" id="title_box" name="query_title">
+      </div>
 
-  <div>
-    <%= form.label :responsibilities, "Responsibilities" %>
-    <%= form.text_area :responsibilities %>
-  </div>
+      <div>
+        <label for="responsibilities_box">
+          Responsibilities
+        </label>
 
-  <div>
-    <%= form.label :desired_qualifications, "Desired Qualifications" %>
-    <%= form.text_area :desired_qualifications %>
-  </div>
+        <textarea id="responsibilities_box" name="query_responsibilities" rows="3"></textarea>
+      </div>
 
-  <div>
-    <%= form.label :logistics, "Logistics" %>
-    <%= form.text_area :logistics %>
-  </div>
+      <div>
+        <label for="desired_qualifications_box">
+          Desired qualifications
+        </label>
 
-  <div>
-    <%= form.label :pay_range, "Pay Range" %>
-    <%= form.text_field :pay_range %>
-  </div>
+        <textarea id="desired_qualifications_box" name="query_desired_qualifications" rows="3"></textarea>
+      </div>
 
-  <div>
-    <%= form.hidden_field :employer_id, value: current_employer.id %>
-  </div>
+      <div>
+        <label for="logistics_box">
+          Logistics
+        </label>
 
-  <div>
-    <%= form.submit "Add Job Posting", class: "btn btn-primary" %>
-  </div>
-<% end %>
+        <textarea id="logistics_box" name="query_logistics" rows="3"></textarea>
+      </div>
+
+      <div>
+        <label for="pay_range_box">
+          Pay range
+        </label>
+
+        <input type="text" id="pay_range_box" name="query_pay_range">
+      </div>
+
+      <div>
+        <input type="hidden" name="employer_id" value="<%= current_employer.id %>">
+      </div>
+
+      <button>
+        Add job posting
+      </button>
+    </form>
   </div>
 </div>

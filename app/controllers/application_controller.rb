@@ -21,6 +21,19 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def after_update_path_for(resource)
+    if resource.is_a?(Employer)
+      Rails.logger.debug "Redirecting employer to profile path: #{employer_profile_path(resource)}"
+      employer_profile_path(resource.id)
+    elsif resource.is_a?(Applicant)
+      Rails.logger.debug "Redirecting applicant to profile path: #{applicant_profile_path(resource)}"
+      applicant_profile_path(resource.id)
+    else
+      # Default behavior for other user types (optional)
+      super # Call Devise default redirect for other types
+    end
+  end
+
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   protected

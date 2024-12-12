@@ -1,8 +1,20 @@
 class JobPostingsController < ApplicationController
+  def new
+    @job_posting = JobPosting.new
+    render({ :template => "job_postings/new"})
+  end
+
+  def employ
+    @job_postings = current_employer.job_postings
+    render({ :template => "employers/job_postings" })
+  end
+
   def index
     matching_job_postings = JobPosting.all
 
     @list_of_job_postings = matching_job_postings.order({ :created_at => :desc })
+
+    @bookmarked_jobs = current_applicant.bookmarked_jobs.pluck(:job_posting_id)
 
     render({ :template => "job_postings/index" })
   end
@@ -29,9 +41,9 @@ class JobPostingsController < ApplicationController
 
     if the_job_posting.valid?
       the_job_posting.save
-      redirect_to("/job_postings", { :notice => "Job posting created successfully." })
+      redirect_to("job_postings", { :notice => "Job posting created successfully." })
     else
-      redirect_to("/job_postings", { :alert => the_job_posting.errors.full_messages.to_sentence })
+      redirect_to("job_postings", { :alert => the_job_posting.errors.full_messages.to_sentence })
     end
   end
 
