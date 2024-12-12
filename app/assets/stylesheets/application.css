@@ -54,3 +54,9 @@ a {
 a:hover {
   text-decoration: underline; /* Underline links on hover for better UX */
 }
+
+label {
+  display: inline-block; /* Ensures the element respects the vertical-align property */
+  vertical-align: top; /* Aligns the label with the top of the text box */
+  margin-bottom: 5px; /* Adds some space below the label */
+}
