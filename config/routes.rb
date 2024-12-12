@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   post("/modify_bookmarked_job/:path_id", { :controller => "bookmarked_jobs", :action => "update" })
   
   # DELETE
-  get("/delete_bookmarked_job/:path_id", { :controller => "bookmarked_jobs", :action => "destroy" })
+  post("/delete_bookmarked_job/:path_id", { :controller => "bookmarked_jobs", :action => "destroy" })
 
   #------------------------------
 
@@ -49,7 +49,7 @@ Rails.application.routes.draw do
   post("/job_postings/:id/edit", { :controller => "job_postings", :action => "update" })
   
   # # DELETE
-  # get("/delete_job_posting/:path_id", { :controller => "job_postings", :action => "destroy" })
+  get("/delete_job_posting/:path_id", { :controller => "job_postings", :action => "destroy" })
 
   #------------------------------
 

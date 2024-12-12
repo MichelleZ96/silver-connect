@@ -105,7 +105,7 @@
 
         <td>
           <% if current_applicant.bookmarked_jobs.exists?({ :job_posting_id => a_job_posting.id }) %>
-            <%= button_to "Remove Bookmark", "/modify_bookmarked_job/#{a_job_posting.id}", method: :post, class: "btn btn-danger" %>
+            <%= button_to "Remove Bookmark", "/delete_bookmarked_job/#{a_job_posting.id}", method: :post, class: "btn btn-danger" %>
           <% else %>
             <%= button_to "Bookmark", "/insert_bookmarked_job", method: :post, params: { job_posting_id: a_job_posting.id }, class: "btn btn-primary" %>
           <% end %>
