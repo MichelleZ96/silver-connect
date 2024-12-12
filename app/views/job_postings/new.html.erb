@@ -1,0 +1,49 @@
+<div>
+  <div>
+    <h1>
+      Create new job posting
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+
+    <%= form_with(url: "/insert_job_posting", method: :post, local: true) do |form| %>
+  <div>
+    <%= form.label :title, "Job Title" %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div>
+    <%= form.label :responsibilities, "Responsibilities" %>
+    <%= form.text_area :responsibilities %>
+  </div>
+
+  <div>
+    <%= form.label :desired_qualifications, "Desired Qualifications" %>
+    <%= form.text_area :desired_qualifications %>
+  </div>
+
+  <div>
+    <%= form.label :logistics, "Logistics" %>
+    <%= form.text_area :logistics %>
+  </div>
+
+  <div>
+    <%= form.label :pay_range, "Pay Range" %>
+    <%= form.text_field :pay_range %>
+  </div>
+
+  <div>
+    <%= form.hidden_field :employer_id, value: current_employer.id %>
+  </div>
+
+  <div>
+    <%= form.submit "Add Job Posting", class: "btn btn-primary" %>
+  </div>
+<% end %>
+  </div>
+</div>
