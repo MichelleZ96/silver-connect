@@ -29,8 +29,12 @@ Rails.application.routes.draw do
   post("/insert_job_posting", { :controller => "job_postings", :action => "create" })
           
   # READ
-  get("/job_postings", { :controller => "job_postings", :action => "index" })
+  get("/job_postings", { :controller => "job_postings", :action => "index" }) #for applicants
+
+  get("/job_postings/employers/:id", { :controller => "job_postings", :action => "employ" }) #for employers
   
+  get("/job_postings/new", { :controller => "job_postings", :action => "new"})
+
   get("/job_postings/:path_id", { :controller => "job_postings", :action => "show" })
   
   # UPDATE
@@ -44,10 +48,5 @@ Rails.application.routes.draw do
 
   devise_for :employers, path: 'employers'
   devise_for :applicants, path: 'applicants'
-  # devise_for :applicants, controllers: { registrations: 'applicants/registrations' }
-
-  # This is a blank app! Pick your first screen, build out the RCAV, and go from there. E.g.:
-
-  # get "/your_first_screen" => "pages#first"
   
 end
