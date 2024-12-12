@@ -6,78 +6,6 @@
   </div>
 </div>
 
-<!--<hr>
--->
-<!--<div>
-  <div>
-    <h2>
-      Add a new job posting
-    </h2>
-
-    <form action="/insert_job_posting" method="post">
-      <div>
-        <label for="title_box">
-          Title
-        </label>
-
-        <input type="text" id="title_box" name="query_title">
-      </div>
-
-      <div>
-        <label for="responsibilities_box">
-          Responsibilities
-        </label>
-
-        <textarea id="responsibilities_box" name="query_responsibilities" rows="3"></textarea>
-      </div>
-
-      <div>
-        <label for="desired_qualifications_box">
-          Desired qualifications
-        </label>
-
-        <textarea id="desired_qualifications_box" name="query_desired_qualifications" rows="3"></textarea>
-      </div>
-
-      <div>
-        <label for="logistics_box">
-          Logistics
-        </label>
-
-        <textarea id="logistics_box" name="query_logistics" rows="3"></textarea>
-      </div>
-
-      <div>
-        <label for="pay_range_box">
-          Pay range
-        </label>
-
-        <input type="text" id="pay_range_box" name="query_pay_range">
-      </div>
-
-<!--      <div>-->
-<!--        <label for="employer_id_box">
-          Employer
-        </label>
-
-        <input type="text" id="employer_id_box" name="query_employer_id">
-      </div>-->
-
-<!--      <div>-->
-<!--        <label for="bookmarked_jobs_count_box">
-          Bookmarked count
-        </label>
-
-        <input type="text" id="bookmarked_jobs_count_box" name="query_bookmarked_jobs_count">
-      </div>-->
-<!--
-      <button>
-        Create job posting
-      </button>
-    </form>
-  </div>
-</div>-->
-
 <hr>
 <div>
   <div>
@@ -112,8 +40,16 @@
         </th>
 
         <th>
-          Bookmarked status
+          Industry
         </th>
+
+        <th>
+          Actions
+        </th> 
+
+<!--        <th>
+          Bookmarked status
+        </th>-->
 
 <!--        <th>
           Created at
@@ -160,29 +96,20 @@
         </td>
 
         <td>
-          <% if @bookmarked_jobs.include?(job_posting.id) %>
-            <span>Yes</span>
-          <% else %>
-            <%= link_to "Bookmark", bookmark_job_path(job), method: :post %>
-          <% end %>
+          <% matching_employers = Employer.where({ :id => a_job_posting.employer_id }) %>
+          
+          <% the_employer = matching_employers.at(0) %>
+
+          <%= the_employer.industry %>
         </td>
 
-<!--        <td>-->
-          <%#= a_job_posting.bookmarked_jobs_count %>
-<!--        </td>
--->
-<!--        <td>-->
-          <%#= time_ago_in_words(a_job_posting.created_at) %> ago
-<!--        </td>
         <td>
-          <%#= time_ago_in_words(a_job_posting.updated_at) %> ago-->
-<!--        </td>-->
-
-<!--        <td>
-          <a href="/job_postings/<%#= a_job_posting.id %>">
-            Show details
-          </a>
-        </td>-->
+          <% if current_applicant.bookmarked_jobs.exists?({ :job_posting_id => a_job_posting.id }) %>
+            <%= button_to "Remove Bookmark", "/modify_bookmarked_job/#{a_job_posting.id}", method: :post, class: "btn btn-danger" %>
+          <% else %>
+            <%= button_to "Bookmark", "/insert_bookmarked_job", method: :post, params: { job_posting_id: a_job_posting.id }, class: "btn btn-primary" %>
+          <% end %>
+        </td>
       </tr>
       <% end %>
     </table>

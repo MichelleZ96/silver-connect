@@ -11,6 +11,7 @@
         <th>Desired Qualifications</th>
         <th>Logistics</th>
         <th>Pay Range</th>
+        <th>Actions</th>
       </tr>
     </thead>
     <tbody>
@@ -18,11 +19,14 @@
         <tr>
           <td><%= job.title %></td>
           <td><%= job.employer.name %></td>
-          <td><%= job.industry %></td>
+          <td><%= job.employer.industry %></td>
           <td><%= job.responsibilities %></td>
           <td><%= job.desired_qualifications %></td>
           <td><%= job.logistics %></td>
           <td><%= job.pay_range %></td>
+          <td>
+            <%= link_to "Modify", "/job_postings/#{job.id}/edit", class: "btn btn-secondary" %>
+          </td>
         </tr>
       <% end %>
     </tbody>
@@ -32,4 +36,3 @@
 <% end %>
 
 <%= link_to "Back to Profile", employer_profile_path(current_employer.id), class: "btn btn-primary" %>
-

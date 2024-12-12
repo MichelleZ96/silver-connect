@@ -1,0 +1,27 @@
+<h1>Edit Job Posting</h1>
+
+<%= form_with(model: @the_job_posting, url: "/job_postings/#{@the_job_posting.id}/edit", method: :post) do |form| %>
+  <div>
+    <%= form.label :title %>
+    <%= form.text_field :title, name: "query_title" %>
+  </div>
+  <div>
+    <%= form.label :responsibilities %>
+    <%= form.text_area :responsibilities, name: "query_responsibilities" %>
+  </div>
+  <div>
+    <%= form.label :desired_qualifications %>
+    <%= form.text_area :desired_qualifications, name: "query_desired_qualifications" %>
+  </div>
+  <div>
+    <%= form.label :logistics %>
+    <%= form.text_area :logistics, name: "query_logistics" %>
+  </div>
+  <div>
+    <%= form.label :pay_range %>
+    <%= form.text_field :pay_range, name: "query_pay_range" %>
+  </div>
+  <div>
+    <%= form.submit "Update Job Posting" %>
+  </div>
+<% end %>
